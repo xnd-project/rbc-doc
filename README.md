@@ -13,5 +13,5 @@ The RBC concept can be applied in various situations. For example, the RBC enabl
 
 In the RBC project, the client software is implemented in Python and uses [Numba](https://github.com/numba/numba) for compiling Python functions into LLVM IR. In addition, the RBC client software can use [Clang compilers](https://clang.llvm.org/) for compiling C/C++ functions into LLVM IR as well. The RBC project provides a Python/Numba based JIT server as a prototype of the RBC concept.
 
-As an application, the RBC client software can be used in connection with [OmniSciDB - an analytical database and SQL engine](https://www.omnisci.com/platform/omniscidb) - for run-time registration of custom SQL functions - User-Defined Functions \(UDFs\) and User-Defined Table Functions \(UDTFs\). OmniSciDB uses JIT technology that enables compiling SQL queries into machine-executable programs to be run on modern CPU and GPU hardware.
+As an application, the RBC client software can be used in connection with [OmniSciDB - an analytical database and SQL engine](https://www.omnisci.com/platform/omniscidb) - for run-time registration of custom SQL functions: User-Defined Functions \(UDFs\) and User-Defined Table Functions \(UDTFs\). OmniSciDB uses JIT technology that enables compiling SQL queries into machine-executable programs to be run on modern CPU and GPU hardware.
 
