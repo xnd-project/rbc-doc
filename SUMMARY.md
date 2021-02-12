@@ -6,3 +6,8 @@
 
 * [Getting started](getting-started/getting-started.md)
 
+---
+
+* [Installation](installation.md)
+* [For developers](for-developers.md)
+
