@@ -4,10 +4,12 @@
 
 ## Getting started
 
-* [Getting started](getting-started/getting-started.md)
+* [Getting started](getting-started/getting-started/README.md)
+  * [Installation](getting-started/getting-started/installation.md)
+  * [Simple example \(OmniSciDB\)](getting-started/getting-started/simple-example-omniscidb.md)
 
----
+## Developers corner
 
-* [Installation](installation.md)
-* [For developers](for-developers.md)
+* [Developing RBC and OmniSciDB](developers-corner/developing-rbc-and-omniscidb/README.md)
+  * [Setup development environments](developers-corner/developing-rbc-and-omniscidb/for-developers.md)
 

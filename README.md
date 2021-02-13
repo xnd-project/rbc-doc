@@ -1,6 +1,6 @@
 # RBC Documentation
 
-## Introduction
+## Overview
 
 The purpose of the [RBC project](https://github.com/xnd-project/rbc) is to implement the concept of Remote Backend Compiler \(RBC\). The concept of RBC is about splitting the compilation of a user-provided program source code to machine-executable instructions in between two different computer systems - an RBC client and a JIT server - using the following workflow:
 
@@ -14,4 +14,9 @@ The RBC concept can be applied in various situations. For example, the RBC enabl
 In the RBC project, the client software is implemented in Python and uses [Numba](https://github.com/numba/numba) for compiling Python functions into LLVM IR. In addition, the RBC client software can use [Clang compilers](https://clang.llvm.org/) for compiling C/C++ functions into LLVM IR as well. The RBC project provides a Python/Numba based JIT server as a prototype of the RBC concept.
 
 As an application, the RBC client software can be used in connection with [OmniSciDB - an analytical database and SQL engine](https://www.omnisci.com/platform/omniscidb) - for run-time registration of custom SQL functions: User-Defined Functions \(UDFs\) and User-Defined Table Functions \(UDTFs\). OmniSciDB uses JIT technology that enables compiling SQL queries into machine-executable programs to be run on modern CPU and GPU hardware.
+
+## Structure of RBC documentation
+
+* [Getting Started](getting-started/getting-started/)
+* [Developers Corner](developers-corner/developing-rbc-and-omniscidb/)
 
