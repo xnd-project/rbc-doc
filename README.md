@@ -1,5 +1,7 @@
 # RBC Documentation
 
+[Gitbook View](https://xnd-project.gitbook.io/rbc-doc), [Documentation Sources](https://github.com/xnd-project/rbc-doc), [Project homepage](https://github.com/xnd-project/rbc). 
+
 ## Overview
 
 The purpose of the [RBC project](https://github.com/xnd-project/rbc) is to implement the concept of Remote Backend Compiler \(RBC\). The concept of RBC is about splitting the compilation of a user-provided program source code to machine-executable instructions in between two different computer systems - an RBC client and a JIT server - using the following workflow:
