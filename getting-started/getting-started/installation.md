@@ -29,7 +29,7 @@ python -c 'import rbc; print(rbc.__version__)'
 
 * It is recommended to install the rbc and omniscidb conda packages to _separate_ conda environments.
 
-```text
+```bash
 conda create -n omniscidb omniscidb
 conda activate omniscidb
 
@@ -45,9 +45,9 @@ To check that omniscidb package is installed successfully, make sure that the om
 omnisci_server --version
 ```
 
-To start omniscidb server with runtime UDF/UDTFs support enabled, run
+To start omniscidb server with runtime UDF/UDTFs support enabled, run the `omnisci_server` command with `--enable-runtime-udf` and `--enable-table-functions` flags:
 
-```text
+```bash
 # Create DB, run only once
 mkdir -p omnisci_data
 omnisci_initdb omnisci_data
@@ -56,5 +56,27 @@ omnisci_initdb omnisci_data
 omnisci_server --data=omnisci_data --enable-runtime-udf --enable-table-functions
 ```
 
+### Install OmniSciDB using docker
+
+```bash
+
+# CPU version
+# https://hub.docker.com/r/omnisci/core-os-cpu
+docker run \
+  -d \
+  --name omnisci \
+  -p 6274:6274 \
+  -v /home/username/omnisci-storage:/omnisci-storage \
+  omnisci/core-os-cpu
   
+# GPU version
+# https://hub.docker.com/r/omnisci/core-os-cuda
+docker run \
+  --runtime=nvidia \
+  -d \
+  --name omnisci \
+  -p 6274:6274 \
+  -v /home/username/omnisci-storage:/omnisci-storage \
+  omnisci/core-os-cuda
+```
 

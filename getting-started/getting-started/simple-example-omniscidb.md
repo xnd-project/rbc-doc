@@ -53,16 +53,16 @@ To register these UDFs to OmnisciDB, one can call
 omnisci.register()
 ```
 
-but when using the `omnisci` object for making SQL queries then the registration of any new UDFs is triggered automatically.
+but when using the `omnisci` object for making SQL queries then the registration of any new UDFs is triggered **automatically**.
 
-That's it! Now anyone connected to the OmniSciDB server can use the SQL function `MYINCR` in their queries.
+That's it! Now anyone connected to the OmniSciDB server can use the SQL function `myincr` in their queries.
 
 ### SQL query using omnisci.sql\_execute
 
 For example, one can use the RBC provided `omnisci` object to send queries:
 
 ```python
-descr, result = omnisci.sql_execute('SELECT x, MYINCR(x) FROM simple_table')
+descr, result = omnisci.sql_execute('SELECT x, myincr(x) FROM simple_table')
 for x, x1 in result:
     print(f'x={x:.4}, x1={x1:.4}')
 ```
@@ -79,7 +79,7 @@ x=1.5, x1=2.5
 
 ### Defining UDTFs - table functions
 
-Table functions act on DB table columns and their results are stored in so-called output columns of temporary tables. Let's implement a new SQL table function that computes a new table with all columns incremented by user-specified value:
+Table functions act on database table columns and their results are stored in so-called output columns of temporary tables. Let's implement a new SQL table function that computes a new table with all columns incremented by user-specified value:
 
 ```python
 @omnisci('int(Cursor<float>, float, RowMultiplier, OutputColumn<float>)')
@@ -93,8 +93,8 @@ omnisci.register()
 
 Before trying it out, let's explain some of the details here:
 
-* The return value of a UDTF definition defines the length of the output columns. The output columns arguments memory is pre-allocated for the size `m * len(x)` where column sizer parameter `m` is a literal constant specified by the user in a SQL query and `len(x)` represents the size of the first input column. In case the UDTF definition returns the output column size value smaller than `m * len(x)`, the memory of output columns will be re-allocated accordingly. The return type of a UDTF definition must be 32-bit integer and the type of column sizer parameters can be `RowMultiplier`, `ConstantParameter`, or `Constant`.
-* The `Cursor<...>` represents the cursor over input table columns. For instance, `Cursor<float, int>` would correspond to two arguments of the UDTF definition, one being the input column containing float values and another being input column containing int values.
+* **Return value** - ****The return value of a UDTF definition defines the length of the output columns. The output columns arguments memory is pre-allocated for the size `m * len(x)` where column sizer parameter `m` is a literal constant specified by the user in a SQL query and `len(x)` represents the size of the first input column. In case the UDTF definition returns the output column size value smaller than `m * len(x)`, the memory of output columns will be re-allocated accordingly. The return type of a UDTF definition must be 32-bit integer and the type of column sizer parameters can be `RowMultiplier`, `ConstantParameter`, or `Constant`.
+* **Cursor** - The `Cursor<...>` represents the cursor over input table columns. For instance, `Cursor<float, int>` would correspond to two arguments of the UDTF definition, one being the input column containing float values and another being input column containing int values.
 
 One can call the new table function to increment the FLOAT column `x` by value `2.3` from a SQL query as follows:
 
