@@ -1,4 +1,4 @@
-# RemoteOmnisci class
+# Integrate with OmniSciDB
 
 ## Connecting to OmniSciDB server
 
@@ -29,15 +29,21 @@ omnisci.sql_execute(f"""
 
 ```python
 data = {
-    'i4': [1, 2, 3],
-    'f8': [1.0, 2.0, 3.0],
+    'i4': [0, 1, 2, 3, 4],
+    'f8': [0.0, 1.0, 2.0, 3.0, 4.0],
 }
 
 omnisci.load_table_columnar(table_name, **data)
 _, r = omnisci.sql_execute(f"select * from {table_name}")
-print(list(r))
-# 
-# 
+
+for i4, f8 in list(r):
+    print(f"{i4=}, {f8=}')
+
+# i4=0, f8=0.0
+# i4=1, f8=1.0
+# i4=2, f8=2.0
+# i4=3, f8=3.0
+# i4=4, f8=4.0
 ```
 
 ## Defining functions
@@ -52,6 +58,14 @@ def incr(i):
 
 ```python
 _, r = omnisci.sql_execute(f"select i4, incr(i4) from {table_name}")
-print(list(r))
+
+for i4, incr in list(r):
+    print(f"{i4=}, {incr=}')
+
+# i4=0, incr=1
+# i4=1, incr=2
+# i4=2, incr=3
+# i4=3, incr=4
+# i4=4, incr=5
 ```
 

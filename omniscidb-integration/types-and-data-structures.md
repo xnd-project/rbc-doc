@@ -1,2 +1,2 @@
-# Types and Data Structures
+# Supported Types and Data Structures
 
