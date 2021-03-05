@@ -10,13 +10,10 @@
 
 ## User Manual
 
-* [A ~5 minute guide to RBC](user-manual/5min-guide/README.md)
-  * [RemoteJIT class](user-manual/5min-guide/remotejit.md)
-  * [Integrate with OmniSciDB](user-manual/5min-guide/omnisci.md)
-  * [Will my code compile with RBC?](user-manual/5min-guide/will-my-code-compile-with-rbc.md)
 * [Compiling code with RBC decorators](user-manual/compiling-code-with-rbc-decorators/README.md)
-  * [Basic Usage](user-manual/compiling-code-with-rbc-decorators/basic-usage.md)
   * [Signature Specification](user-manual/compiling-code-with-rbc-decorators/signature-specification.md)
+* [The Signature Class](user-manual/the-signature-class.md)
+* [Calling External Functions](user-manual/calling-external-functions.md)
 
 ## OmniSciDB Integration
 
